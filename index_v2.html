@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ایردراپ کلیکی</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #222, #333);
+      color: #fff;
+      font-family: Vazir, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .coin {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .circle {
+      width: 200px;
+      height: 200px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000;
+      box-shadow: 0 0 30px #ffcc00;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+
+    .circle:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="coin">سکه‌ها: <span id="coins">0</span></div>
+  <div class="circle" onclick="addCoin()">+1</div>
+
+  <script>
+    let coins = parseInt(localStorage.getItem("coins")) || 0;
+    document.getElementById("coins").innerText = coins;
+
+    function addCoin() {
+      coins += 1;
+      localStorage.setItem("coins", coins);
+      document.getElementById("coins").innerText = coins;
+    }
+  </script>
+</body>
+</html>
